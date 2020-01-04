@@ -8,7 +8,7 @@ namespace Arquitetura.CrossCutting.DependencyInjection
     {
         public static IServiceCollection ConfigureDependenciesRepository(this IServiceCollection serviceCollection)
         {
-            serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            //serviceCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             serviceCollection.AddScoped<IUserRepository, UserRepository>();
 
             return serviceCollection;

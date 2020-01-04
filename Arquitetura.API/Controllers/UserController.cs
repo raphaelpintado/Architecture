@@ -1,7 +1,7 @@
 ﻿using System;
 using Arquitetura.Domain.Entities;
 using Arquitetura.Domain.Interfaces.Services;
-using Arquitetura.Services.Validator;
+using Arquitetura.Services.Validator.Notification;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Arquitetura.API.Controllers
@@ -9,11 +9,11 @@ namespace Arquitetura.API.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : ApiBaseController
     {
         private IUserService _service;
 
-        public UserController(IUserService service)
+        public UserController(IUserService service, INotification notification) : base(notification)
         {
             _service = service;
         }
@@ -23,7 +23,7 @@ namespace Arquitetura.API.Controllers
         {
             try
             {
-                _service.Post<UserValidator>(item);
+                _service.Post(item);
 
                 return new ObjectResult(item.Id);
             }
@@ -42,7 +42,7 @@ namespace Arquitetura.API.Controllers
         {
             try
             {
-                _service.Post<UserValidator>(item);
+                _service.Post(item);
 
                 return new ObjectResult(item);
             }
