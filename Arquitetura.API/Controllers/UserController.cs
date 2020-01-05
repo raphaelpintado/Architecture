@@ -9,7 +9,7 @@ namespace Arquitetura.API.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ApiBaseController
+    public class UserController : MainController
     {
         private IUserService _service;
 

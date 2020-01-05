@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Arquitetura.API.Controllers
 {
-    public abstract class ApiBaseController : ControllerBase
+    [ApiController]
+    public abstract class MainController : ControllerBase
     {
         private readonly INotification _notification;
 
-        protected ApiBaseController(INotification notification)
+        protected MainController(INotification notification)
         {
             _notification = notification;
         }
