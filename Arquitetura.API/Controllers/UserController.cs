@@ -9,11 +9,11 @@ namespace Arquitetura.API.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : MainController
+    public class UserController : ControllerBase
     {
         private IUserService _service;
 
-        public UserController(IUserService service, INotification notification) : base(notification)
+        public UserController(IUserService service)
         {
             _service = service;
         }
